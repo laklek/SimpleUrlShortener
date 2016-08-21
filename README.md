@@ -11,6 +11,7 @@ Focus is
 # Requirements
 - Apache (Tested on Apache/2.4.10 (Debian), nginx compatiblility not assured)
 - php (Tested on php 5.6)
+- mysql & php-mysql plugin
 - rewrite apache mod enabled ( a2enmod rewrite ) (if you use a webhost, ask them to enable it if it isn't already)
 
 # Installation
