@@ -1,5 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteRule ^([0-9a-zA-Z]+)$ http://%{HTTP_HOST}/s.php?u=$1 [R,L]
-    #redirect all trafic from http://your.site/%s to http://your.site/s.php?u=%s
+    #replace http:// by https:// if you use https at the line above.
+    #It redirects all trafic from http://your.site/%s to http://your.site/s.php?u=%s (not http://your.site/dir1/%s or your.site/%s.php etc.)
 </IfModule>
