@@ -28,9 +28,9 @@ I will be making an example.html but basically you have the following GET and PO
 (%s = short url   %l = long url)
 
 ```
-call                                                  method            description
-http://my.site/s.php?u=%s                             GET               Goes to the stored long version of the url %s   
-http://my.site/%s                                     GET               Goes to the stored long version of the url %s   
-http://my.site/s.php?del=%s                           GET/POST          Deletes the short URL %s with it's long version   
-http://my.site/s.php?short=%s&long=%l                 GET/POST          Creates a shortened url from %s to the remote %l
+call                                          method            description
+http://my.site/s.php?u=%s                     GET               Goes to the stored long version of the url %s   
+http://my.site/%s                             GET               Goes to the stored long version of the url %s   
+http://my.site/s.php?del=%s                   GET/POST          Deletes the short URL %s with it's long version   
+http://my.site/s.php?short=%s&long=%l         GET/POST          Creates a shortened url from %s to the remote %l
 ```
