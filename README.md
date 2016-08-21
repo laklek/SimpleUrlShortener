@@ -7,6 +7,7 @@ Focus is
 - Compatibility with custom hostnames (for ex: http://myRaspPi or http://localhost)
 - Custom protocols (skype:les.de?add)
 - Portability of all the files and easy installation
+- Ability to record hits
 
 # Requirements
 - Apache (Tested on Apache/2.4.10 (Debian), nginx compatiblility not assured)
