@@ -1,0 +1,4 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+	RewriteRule ^([0-9a-zA-Z]+)$ https://%{HTTP_HOST}/s.php?u=$1 [R,L]
+</IfModule>
