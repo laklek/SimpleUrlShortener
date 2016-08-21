@@ -31,7 +31,7 @@ if ($shortUrl) {
 } elseif ($_POST["del"]) {
     die(unRegister($_POST["del"]));
 } else {
-    header("Location: /"); //You're drunk, go home.
+    header("Location: /"); //Go home, you're drunk.
     exit;
 }
 
