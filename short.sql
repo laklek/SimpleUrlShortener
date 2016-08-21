@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 21, 2016 at 06:03 AM
+-- Generation Time: Aug 21, 2016 at 06:59 AM
 -- Server version: 5.5.50-0+deb8u1
 -- PHP Version: 5.6.24-0+deb8u1
 
@@ -30,6 +30,7 @@ CREATE TABLE `short` (
   `id` int(11) NOT NULL,
   `shortUrl` varchar(255) NOT NULL,
   `longUrl` varchar(2084) NOT NULL,
+  `hits` int(255) NOT NULL DEFAULT '0',
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
