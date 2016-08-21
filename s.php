@@ -19,16 +19,16 @@ if($shortUrl) {
     }
 
     header("Location: " . $longUrl);  //Redirect to longer Url. You could implement a check here but I don't want to cause I want to use
-    exit();                             //custom host names like http://workstation or ftp://myPi. Not recommended to use this for public use.
+    exit;                           //custom host names like http://workstation or ftp://myPi. Not recommended to use this for public use.
 
 }elseif($_GET['short']||$_GET['long']){
     die(registerShortUrl($_GET['short'], $_GET['long'])); //Both GET and POST support
 }elseif($_POST['short']||$_POST['long']) {
     die(registerShortUrl($_POST['short'], $_POST['long']));
 }elseif($_GET["del"]){
-    unRegister($_GET["del"]);
+    die(unRegister($_GET["del"]));
 }elseif($_POST["del"]){
-    unRegister($_POST["del"]);
+    die(unRegister($_POST["del"]));
 }else{
     header("Location: /"); //You're drunk, go home.
     exit;
@@ -56,6 +56,8 @@ function registerShortUrl($short, $long){
 }
 
 function unRegister($short){
+    global $mysqli;
+
     $mysqlDelQry = $mysqli->query("DELETE FROM short WHERE shortUrl='$short'");
     if($mysqlDelQry === false){
         return "An error occurred.";
