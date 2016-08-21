@@ -1,4 +1,5 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-	RewriteRule ^([0-9a-zA-Z]+)$ https://%{HTTP_HOST}/s.php?u=$1 [R,L]
+    RewriteRule ^([0-9a-zA-Z]+)$ http://%{HTTP_HOST}/s.php?u=$1 [R,L]
+    #redirect all trafic from http://your.site/%s to http://your.site/s.php?u=%s
 </IfModule>
