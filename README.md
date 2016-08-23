@@ -18,7 +18,8 @@ Focus is
 # Installation
 
 1. Download the project using git
-    $ git clone https://github.com/don/cordova-plugin-hello.git
+
+    $ git clone https://github.com/lesleyxyz/SimpleUrlShortener.git
 2. Upload/place the .htaccess and s.php to your webroot (like /var/www/html/) (if you use https:// edit it in .htaccess)
 3. Import short.sql to any of your databases or create a new one if you prefer
 4. configure database settings in s.php
