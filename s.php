@@ -38,7 +38,8 @@ if ($shortUrl) {
 function registerShortUrl($short, $long)
 {
     global $mysqli;
-
+    $short = $mysqli->real_escape_string($short);
+    $long = $mysqli->real_escape_string($long);
     if (strlen($short) > 0 && strlen($long) > 0) {
 
         $mysqlLongUrlQry = $mysqli->query("SELECT * FROM short WHERE shortUrl='$short'");
@@ -60,7 +61,7 @@ function registerShortUrl($short, $long)
 function unRegister($short)
 {
     global $mysqli;
-
+    $short = $mysqli->real_escape_string($short);
     $mysqlDelQry = $mysqli->query("DELETE FROM short WHERE shortUrl='$short'");
     if ($mysqlDelQry === false) {
         return "An error occurred.";
@@ -72,7 +73,7 @@ function unRegister($short)
 function getLongUrl($short)
 {
     global $mysqli;
-
+    $short = $mysqli->real_escape_string($short);
     $mysqlLongUrlQry = $mysqli->query("SELECT * FROM short WHERE shortUrl='$short'");
     if ($mysqlLongUrlQry->num_rows == 0) {
         return false;
