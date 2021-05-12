@@ -13,14 +13,18 @@ $shortUrl = $_GET['u']; // $_GET['u'] returns the full path without the protocol
 if ($shortUrl) {
 
     $longUrl = getLongUrl($shortUrl);
+    $longUrl = str_replace(array("\n", "\r"), '', $longUrl);
+    
     if (!$longUrl) {
         header("Location: /"); //invalid short url, returning to home page.
         exit; //Prevent the script from executing further if somehow client blocked redirects.
     }
-
+    
+    $shortUrl = $mysqli->real_escape_string($shortUrl);
     $mysqli->query("UPDATE short SET hits = hits + 1 WHERE shortUrl = '$shortUrl'"); //Register Hit
-    header("Location: " . addHttp($longUrl));    //Redirect to longer Url. You could implement a check here but I don't want to cause I want to use
-    exit;                               //custom host names like http://workstation or ftp://myPi. Not recommended to use this for public use.
+    
+    header("Location: " . $longUrl);
+    exit;
 
 } elseif ($_GET['short'] || $_GET['long']) {
     die(registerShortUrl($_GET['short'], $_GET['long'])); //Both GET and POST support
@@ -50,7 +54,7 @@ function registerShortUrl($short, $long)
                 return "Error while inserting.";
             }
         } else {
-            $longUrl = getLongUrl($short);
+            $longUrl = htmlspecialchars(getLongUrl($short));
             return "Error: $short already taken. Points to: <a href=" . '"' . $longUrl . '"' . ">$longUrl</a> .";
         }
     } else {
